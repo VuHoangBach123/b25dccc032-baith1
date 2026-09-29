@@ -1,0 +1,130 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --card-bg: #f4f4f4;
+    --primary-color: #007bff;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1e1e1e;
+    --text-color: #ffffff;
+    --card-bg: #2d2d2d;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--card-bg);
+    position: sticky;
+    top: 0;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.section {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.skills-grid, .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.skill-card, .project-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.skill-card:hover, .project-card:hover {
+    transform: translateY(-5px);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+input, textarea, button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--card-bg);
+}
+
+@media (max-width: 900px) {
+    .section {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .hamburger {
+        display: block;
+    }
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: var(--card-bg);
+        width: 100%;
+        padding: 1rem;
+    }
+    nav.active {
+        display: flex;
+    }
+}
